@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Pill Partner</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top " style="background-color:#104f55">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="/">Pill Partner</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about" style="padding-left: 20px">
+        <h1 style="color: #104f55" >Welcome {{name}} to your home page. Your medications are below.</h1>
+        <p class="fst-italic" style="color: #104f55">
+        </p>
+          {% for meds in med %}
+          <div style="color: #104f55">
+
+              {% for key, value in meds.items() %}
+                    <div class="column">
+                  {% if key == "medicine_name" %}
+                      <h2 style="padding-left: 20px">Perscription Name: {{value}}</h2>
+                  {% elif key == "pill_count" %}
+                      <p style="padding-left: 40px; color: #32746d; font-size: 20px">Take {{value}} per serving</p>
+                  {% elif key == "frequency" %}
+                      <p style="padding-left: 40px; color: #32746d; font-size: 20px">Take {{value}} daily</p>
+                  {% elif key == "time" %}
+                      <p style="padding-left: 40px; color: #32746d; font-size: 20px">Take next at {{value}}</p>
+                  {% endif %}
+                    </div>
+          </div>
+              {% endfor %}
+          {% endfor %}
+          <form method="post">
+            <input type="submit" name="uploadagain" value="Upload New Medication" style="background-color:#32746D; color: #fff7f6" class="btn btn-orange btn-rounded-corner">
+          </form>
+          <h1> &emsp;</h1>
+          <h1> &emsp;</h1>
+          <h1> &emsp;</h1>
+          <br>
+          <h1> &emsp;</h1>
+          <h1> &emsp;</h1>
+          <br>
+          <h1> &emsp;</h1>
+      </section><!-- End About Section -->
+    </main><!-- End #main -->
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
